@@ -1,9 +1,10 @@
 import React from "react";
+
 import SearchBar from "@/components/SearchBar";
 import Logo from "@/components/Logo";
 import GitHubLink from "@/components/GitHubLink";
 
-export default function Home() {
+export default function Page() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <Logo />

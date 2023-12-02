@@ -1,6 +1,7 @@
 import { AppProps } from "next/app";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
+
 import "@/styles/globals.css";
 
 const plex = IBM_Plex_Mono({
