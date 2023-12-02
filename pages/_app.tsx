@@ -1,6 +1,7 @@
+import { AppProps } from "next/app";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
-import "./globals.css";
+import "../styles/globals.css";
 
 const plex = IBM_Plex_Mono({
   weight: "400",
@@ -12,14 +13,10 @@ export const metadata: Metadata = {
   description: "Search through sience papers on arXiv.org",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function SearXiv({ Component, pageProps }: AppProps) {
   return (
-    <html lang="en">
-      <body className={plex.className}>{children}</body>
-    </html>
+    <div className={plex.className}>
+      <Component {...pageProps} />
+    </div>
   );
 }

@@ -1,19 +1,25 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { useRouter, NextRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-export function SearchBar() {
-  const searchParams = useSearchParams();
-  const query = searchParams
-    .get("query")
-    ?.replace(/^\"/, "")
-    .replace(/\"$/, "");
+export default function SearchBar() {
+  const router: NextRouter = useRouter();
+  const { query: rawQuery } = router.query;
+  const [query, setQuery] = useState("");
+  console.log(query);
 
-  const router = useRouter();
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+  useEffect(() => {
+    const fetchData = async () => {
+      const resolvedQuery = Array.isArray(rawQuery) ? rawQuery[0] : rawQuery;
+      setQuery(resolvedQuery?.replace(/^\"/, "").replace(/\"$/, "") ?? "");
+    };
+    fetchData();
+  }, [rawQuery]);
+
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
     const query = formData.get("query");
     router.push(`/results?query="${query}"`);
   };
