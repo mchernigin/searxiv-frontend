@@ -7,7 +7,6 @@ export default function SearchBar() {
   const router: NextRouter = useRouter();
   const { query: rawQuery } = router.query;
   const [query, setQuery] = useState("");
-  console.log(query);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,11 +26,11 @@ export default function SearchBar() {
   return (
     <div
       id="search"
-      className="relative flex flex-row max-w-[75%] my-12  h-14 mx-auto border-2 border-neutral-900 dark:border-neutral-200 rounded-xl shadow-xl bg-neutral-200 dark:bg-neutral-900 overflow-hidden"
+      className="relative flex flex-row max-w-[75%] my-12  h-14 mx-auto border-2 border-neutral-900 dark:border-neutral-100 rounded-xl shadow-xl bg-neutral-100 dark:bg-neutral-900 overflow-hidden"
     >
       <form onSubmit={onSubmit} className="flex w-full">
         <input
-          className="h-full w-[40em] flex-grow outline-none p-4 pr-0 text-lg text-neutral-900 dark:text-neutral-200 bg-neutral-200 dark:bg-neutral-900 placeholder-neutral-400"
+          className="h-full w-[40em] flex-grow outline-none p-4 pr-0 text-lg text-neutral-900 dark:text-neutral-100 bg-neutral-100 dark:bg-neutral-900 placeholder-neutral-400"
           type="text"
           id="search"
           name="query"
@@ -40,11 +39,11 @@ export default function SearchBar() {
           placeholder="Search for computer science papers on arxiv.org..."
         />
         <button
-          className="w-[10%] min-w-[4em] h-full bg-neutral-900 dark:bg-neutral-200 text-neutral-200 dark:text-neutral-900 text-sm font-semibold flex items-center justify-center"
+          className="w-[10%] min-w-[4em] h-full bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 text-sm font-semibold flex items-center justify-center"
           type="submit"
         >
           <svg
-            className="dark:fill-neutral-900 fill-neutral-200 scale-[.60]"
+            className="dark:fill-neutral-900 fill-neutral-100 scale-[.60]"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
