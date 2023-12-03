@@ -23,7 +23,7 @@ export const getServerSideProps = (async (context: any) => {
   const searchQuery = query.query?.replace(/^\"/, "").replace(/\"$/, "");
 
   const res = await fetch(
-    `http://127.0.0.1:1818/search?query="${searchQuery}"`
+    `${process.env.SEARXIV_API}/search?query="${searchQuery}"`
   );
 
   if (!res.ok) {
